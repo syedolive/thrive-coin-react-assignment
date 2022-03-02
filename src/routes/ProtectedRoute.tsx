@@ -5,7 +5,8 @@ import Cookies from "js-cookie";
 
 const ProtectedRoute = ({children}: {children: JSX.Element}) => {
     const location = useLocation();
-    if(Cookies.get('userData') === ''){
+    const cookieData = Cookies.get('userData');
+    if(cookieData === '' || cookieData === undefined){
         return <Navigate to={'/login'} state={{from: location}} replace/>
     }
     return children;

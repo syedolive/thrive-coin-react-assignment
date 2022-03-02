@@ -24,8 +24,8 @@ class UserStore {
       getNewExpiry: computed,
       destroySession: action.bound,
     });
-    const persistedStore = Cookies.get("userData") as string;
-    if (persistedStore !== '') {
+    const persistedStore: any = Cookies.get("userData");
+    if (persistedStore !== '' && persistedStore !== undefined) {
       const parsedStore = JSON.parse(persistedStore);
       this.id = parsedStore.id;
       this.email = parsedStore.email;
