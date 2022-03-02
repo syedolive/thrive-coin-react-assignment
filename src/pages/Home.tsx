@@ -6,11 +6,12 @@ import SideBox from "../components/SideBox";
 import NavMenu from "../components/NavMenu";
 import {Outlet, useLocation, useNavigate} from "react-router-dom";
 import {useConnectionsContext} from "../stores/connections.store";
+import ConnectionAlert from "../components/ConnectionAlert";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const {setConnectionsData, received} = useConnectionsContext();
+    const {setConnectionsData} = useConnectionsContext();
     useEffect(() => {
         fetchData();
     }, []);
@@ -64,15 +65,8 @@ const Home: React.FC = () => {
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="col-12 my-4 text-center">
-                                            <div className="d-flex align-items-center justify-content-center">
-                                                <div className="line-left" />
-                                                <p className="new-connection">
-                                                    You have <span>{received.length} new connections</span>
-                                                </p>
-                                                <div className="line-right" />
-                                            </div>
-                                        </div>
+                                        {/*Connection Alert*/}
+                                        <ConnectionAlert/>
                                         <Outlet/>
                                     </div>
                                 {/*    Recent Connections*/}

@@ -1,4 +1,4 @@
-import { makeObservable, action, observable } from "mobx";
+import {makeObservable, action, observable, computed} from "mobx";
 import React from "react";
 class ConnectionStore {
   sent: Array<any> = [];
@@ -11,12 +11,16 @@ class ConnectionStore {
       received: observable,
       recent: observable,
       setConnectionsData: action.bound,
+      connectionsCount: computed
     });
   }
   setConnectionsData = (invitations: any, recent: any) => {
       this.sent = invitations.filter((item: any) => item.invitation_type === 'sent');
       this.received = invitations.filter((item: any) => item.invitation_type === 'received');
       this.recent = recent;
+  }
+  get connectionsCount(){
+    return this.received.length;
   }
 }
 

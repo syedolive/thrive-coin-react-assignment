@@ -25,8 +25,8 @@ class UserStore {
       getNewExpiry: computed,
       destroySession: action.bound,
     });
-    const persistedStore: string | undefined = Cookies.get("userData");
-    if (persistedStore !== undefined) {
+    const persistedStore = Cookies.get("userData") as string;
+    if (persistedStore !== '') {
       const parsedStore = JSON.parse(persistedStore);
       this.id = parsedStore.id;
       this.email = parsedStore.email;
@@ -46,15 +46,6 @@ class UserStore {
       dayjs(user.authentication_token_expire_at).diff(dayjs());
     this.setLocalStorage();
   };
-
-  updateToken = (token: string, tokenExpiry: string) => {
-    this.token = token;
-    this.tokenExpiry = tokenExpiry;
-    this.tokenExpiryMilliseconds =
-      dayjs(tokenExpiry).diff(dayjs());
-    this.setLocalStorage();
-  };
-
   setLocalStorage = () => {
     document.cookie = `userData=${JSON.stringify({
       id: this.id,
@@ -80,7 +71,7 @@ class UserStore {
         this.createSession(user);
       }
     } catch (e) {
-      this.token = null;
+      await this.destroySession();
       return false
     } finally {
       console.log("token refreshed");

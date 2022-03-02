@@ -1,40 +1,34 @@
 import React from "react";
-import {Routes as DomRoutes, Route} from "react-router-dom";
-import Login from "../pages/authentication/Login";
-import Received from "../pages/invitations/Received";
-import Sent from "../pages/invitations/Sent";
+import {Routes as DomRoutes, Route, Navigate, useLocation} from "react-router-dom";
+import ApplicationHoc from "../HOC";
+import {UserContext} from "../stores/user.store";
+import ProtectedRoute from "./ProtectedRoute";
+
+const Received = React.lazy(() => import("../pages/invitations/Received"));
+const Sent = React.lazy(() => import("../pages/invitations/Sent"));
 
 const Home = React.lazy(() => import("../pages/Home"));
+const Login = React.lazy(() => import('../pages/authentication/Login'))
+
+const WrappedLogin = ApplicationHoc(Login);
+const WrappedHome = ApplicationHoc(Home);
+const WrappedReceived = ApplicationHoc(Received);
+const WrappedSent = ApplicationHoc(Sent);
+
+
 
 const Routes: React.FC = () => {
     return (
         <DomRoutes>
-            <Route
-                path="invitations"
-                element={
-                    <React.Suspense fallback={<div>unable to load page</div>}>
-                        <Home/>
-                    </React.Suspense>
-                }>
-                <Route index={true} element={
-                    <React.Suspense fallback={<div>Unable to load page</div>}>
-                        <Received/>
-                    </React.Suspense>
-                }/>
-                <Route path="sent" element={
-                    <React.Suspense fallback={<div>Unable to load page</div>}>
-                        <Sent/>
-                    </React.Suspense>
-                }/>
+            <Route path="invitations" element={
+                <ProtectedRoute>
+                    <WrappedHome/>
+                </ProtectedRoute>
+            }>
+                <Route index={true} element={<WrappedReceived/>}/>
+                <Route path="sent" element={<WrappedSent/>}/>
             </Route>
-            <Route
-                path="login"
-                element={
-                    <React.Suspense fallback={<div>unable to load page</div>}>
-                        <Login/>
-                    </React.Suspense>
-                }
-            />
+            <Route path="login" element={<WrappedLogin/>}/>
         </DomRoutes>
     );
 };

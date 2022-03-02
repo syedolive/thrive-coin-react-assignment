@@ -11,9 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c154e77-884e-4842-908d-6f2e7fe27b67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/NavMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RecentConnections.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RecentConnections.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ConnectionAlert.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/ProtectedRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/connections.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/connections.store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/user.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/user.store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1646122147963</updated>
-      <workItem from="1646122156210" duration="28133000" />
+      <workItem from="1646122156210" duration="33365000" />
     </task>
     <servers />
   </component>
@@ -93,5 +96,9 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="80" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1646122461923" />
+    <state x="463" y="182" key="search.everywhere.popup" timestamp="1646220896342">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="463" y="182" key="search.everywhere.popup/0.0.1600.870@0.0.1600.870" timestamp="1646220896342" />
   </component>
 </project>
