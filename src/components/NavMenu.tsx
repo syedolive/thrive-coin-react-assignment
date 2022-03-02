@@ -1,6 +1,13 @@
 import React, {memo} from "react";
+import {useUserContext} from "../stores/user.store";
 
 const NavMenu = (props: any) => {
+    const {destroySession} = useUserContext();
+    const _logout = () => {
+        destroySession().then(res => {
+            props.logout();
+        })
+    }
     return(
         <section className="nav">
             <div className="container-fluid p-0">
@@ -49,7 +56,7 @@ const NavMenu = (props: any) => {
                                         </li>
                                     </ul>
                                 </div>
-                                <button type="button" className="gradient-button w_150 hc-50">
+                                <button onClick={_logout} type="button" className="gradient-button w_150 hc-50">
                                     Log out
                                 </button>
                             </div>

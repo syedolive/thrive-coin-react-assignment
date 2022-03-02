@@ -23,6 +23,7 @@ class UserStore {
       updateTokenExpiry: action.bound,
       onTokenRefresh: computed,
       getNewExpiry: computed,
+      destroySession: action.bound,
     });
     const persistedStore: string | undefined = Cookies.get("userData");
     if (persistedStore !== undefined) {
@@ -79,6 +80,7 @@ class UserStore {
         this.createSession(user);
       }
     } catch (e) {
+      this.token = null;
       return false
     } finally {
       console.log("token refreshed");
@@ -95,6 +97,16 @@ class UserStore {
   get getNewExpiry(){
     return this.tokenExpiryMilliseconds;
   }
+  destroySession = async () => {
+    this.id = null;
+    this.email = null;
+    this.token = null;
+    this.tokenExpiry = null;
+    this.tokenExpiryMilliseconds = 86400000;
+    Cookies.set('userData', "");
+    return true;
+  }
+
 }
 
 export const userStore = new UserStore();

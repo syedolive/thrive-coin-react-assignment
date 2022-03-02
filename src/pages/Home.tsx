@@ -10,7 +10,7 @@ import {useConnectionsContext} from "../stores/connections.store";
 const Home: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const {setConnectionsData} = useConnectionsContext();
+    const {setConnectionsData, received} = useConnectionsContext();
     useEffect(() => {
         fetchData();
     }, []);
@@ -35,10 +35,13 @@ const Home: React.FC = () => {
         const url = e.target.getAttribute('href');
         navigate(url);
     }, []);
+    const _logout = useCallback(() => {
+        navigate('/login', {replace: true});
+    }, []);
     return (
         <>
             {/*Nav Menu*/}
-            <NavMenu/>
+            <NavMenu logout={_logout}/>
             <section className="content-section">
                 <div className="overlay-content" />
                 <div className="container-fluid">
@@ -65,7 +68,7 @@ const Home: React.FC = () => {
                                             <div className="d-flex align-items-center justify-content-center">
                                                 <div className="line-left" />
                                                 <p className="new-connection">
-                                                    You have <span>2 new connections</span>
+                                                    You have <span>{received.length} new connections</span>
                                                 </p>
                                                 <div className="line-right" />
                                             </div>

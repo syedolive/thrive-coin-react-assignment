@@ -28,7 +28,7 @@ const RecentConnections = observer((props: any) => {
                             </div>
                         </div>
                         <span className="text-center text-xl-right lightgrey connected-time">
-                            {dayjs(recentConnections.connection_date).toISOString()}
+                            {dayjs(recentConnections.connection_date).format('MM MMM, dddd')}
                         </span>
                     </div>
                 </div>
