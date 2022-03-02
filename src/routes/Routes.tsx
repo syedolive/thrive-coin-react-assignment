@@ -28,6 +28,9 @@ const Routes: React.FC = () => {
                 <Route path="sent" element={<WrappedSent/>}/>
             </Route>
             <Route path="login" element={<WrappedLogin/>}/>
+            <Route path={"*"} element={
+                <div>No Page exists on this route</div>
+            }/>
         </DomRoutes>
     );
 };

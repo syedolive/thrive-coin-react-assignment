@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import {useUserContext} from "../stores/user.store";
-
+import {Users, MessageSquare, Search} from 'react-feather';
 const NavMenu = (props: any) => {
     const {destroySession} = useUserContext();
     const _logout = () => {
@@ -16,7 +16,7 @@ const NavMenu = (props: any) => {
                         <div className="nav_wrapper shadow-sm">
                             <div className="nav-left">
                                 <a href="#!">
-                                    <i className="fa-brands fa-linkedin" />
+                                    <img src="./img/logo_alternate.png" alt="logo" />
                                 </a>
                             </div>
                             <div className="nav-right">
@@ -31,13 +31,14 @@ const NavMenu = (props: any) => {
                                     <ul className="nav__link">
                                         <li className="active__link">
                                             <a href="#!">
-                                                <i className="fa-solid fa-user-group" />
+                                                {/*<i className="fa-solid fa-user-group" />*/}
+                                                <Users color={'#0275B1'} />
                                                 <p className="nav__text">Network</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#!" className="with-Ncount">
-                                                <i className="fa-solid fa-message" />
+                                                <MessageSquare color={'#0275B1'} />
                                                 <span className="notifBadge">2</span>
                                                 <p className="nav__text">Chat</p>
                                             </a>
@@ -45,7 +46,7 @@ const NavMenu = (props: any) => {
                                         <li className="search_li">
                                             <form action="">
                                                 <div className="search-wrapper">
-                                                    <i className="fa-solid fa-magnifying-glass" />
+                                                    <Search color={'#0275B1'} />
                                                     <input
                                                         type="text"
                                                         className="search_bar"

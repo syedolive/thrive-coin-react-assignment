@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-
+import {Link, Disc, Archive, Users,Layers, Hash} from 'react-feather';
 const SideBox = (props: any) => {
     return(
         <div className="side-box bg-white">
@@ -7,7 +7,7 @@ const SideBox = (props: any) => {
                 <li>
                     <a href="#!">
                     <span>
-                      <i className="fa-solid fa-link" /> Connections
+                      <Link size={20} />  Connections
                     </span>
                         <p className="count_update">
                             2 <i className="fa-solid fa-circle ml-2" />
@@ -17,7 +17,7 @@ const SideBox = (props: any) => {
                 <li className="active">
                     <a href="#!">
                     <span>
-                      <i className="fa-solid fa-circle-stop" /> Invitations
+                     <Disc size={20} />  Invitations
                     </span>
                         <p className="count_update show">
                             2 <i className="fa-solid fa-circle ml-2" />
@@ -27,7 +27,7 @@ const SideBox = (props: any) => {
                 <li>
                     <a href="#!">
                     <span>
-                      <i className="fa-solid fa-square" /> Teammates
+                      <Archive size={20} />  Teammates
                     </span>
                         <p className="count_update">
                             2 <i className="fa-solid fa-circle ml-2" />
@@ -37,7 +37,7 @@ const SideBox = (props: any) => {
                 <li>
                     <a href="#!">
                     <span>
-                      <i className="fa-solid fa-user-group" /> Groups
+                      <Users size={20} />  Groups
                     </span>
                         <p className="count_update">
                             2 <i className="fa-solid fa-circle ml-2" />
@@ -47,7 +47,7 @@ const SideBox = (props: any) => {
                 <li>
                     <a href="#!">
                     <span>
-                      <i className="fa-solid fa-layer-group" /> Pages
+                      <Layers size={20} />  Pages
                     </span>
                         <p className="count_update">
                             2 <i className="fa-solid fa-circle ml-2" />
@@ -57,7 +57,7 @@ const SideBox = (props: any) => {
                 <li>
                     <a href="#!">
                     <span>
-                      <i className="fa-solid fa-hashtag" /> Hashtags
+                      <Hash size={20} />  Hashtags
                     </span>
                         <p className="count_update">
                             2 <i className="fa-solid fa-circle ml-2" />
