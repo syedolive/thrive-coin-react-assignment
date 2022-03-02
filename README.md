@@ -1,10 +1,14 @@
-# Getting Started with Create React App
+# ThriveCoin React Assignment.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a part of ThriveCoin Interview Process.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install` 
+
+Will install all the required dependency for the project
 
 ### `npm start`
 
