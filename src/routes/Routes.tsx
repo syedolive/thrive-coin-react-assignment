@@ -1,7 +1,6 @@
 import React from "react";
 import {Routes as DomRoutes, Route, Navigate, useLocation} from "react-router-dom";
 import ApplicationHoc from "../HOC";
-import {UserContext} from "../stores/user.store";
 import ProtectedRoute from "./ProtectedRoute";
 
 const Received = React.lazy(() => import("../pages/invitations/Received"));

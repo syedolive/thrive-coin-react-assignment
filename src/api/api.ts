@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 
 export const instance = Axios.create({baseURL: 'https://thc-ui-api.thrivecoin.com/v1/'});
 
-const store = userStore
+let store = userStore;
 let tokenTimeout: any;
 
 function refreshToken(timeout: number){

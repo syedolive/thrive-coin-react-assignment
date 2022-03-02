@@ -10,7 +10,6 @@ class UserStore {
   token: string | null = null;
   tokenExpiry: string | null = null;
   tokenExpiryMilliseconds: number = 86400000;
-  refreshTokenInterval: any = null;
 
   constructor() {
     makeObservable(this, {
@@ -71,7 +70,7 @@ class UserStore {
         this.createSession(user);
       }
     } catch (e) {
-      await this.destroySession();
+      // await this.destroySession();
       return false
     } finally {
       console.log("token refreshed");
